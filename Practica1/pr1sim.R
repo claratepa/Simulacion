@@ -29,7 +29,7 @@ for (pot in 5:potencia){
   }
 }
 names(registro) = c("pot", "porc", "dim")
-png("pr1si.png")
+png("pr1sim.png")
 boxplot(porc ~ dim, 
 data =  registro,
 main="Probabilidad de regreso al punto de origen",
