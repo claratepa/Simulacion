@@ -29,10 +29,14 @@ for (pot in 5:potencia){
   }
 }
 names(registro) = c("pot", "porc", "dim")
-png("pr1sim.png")
+sink('registro.txt')
+print(registro)
+sink()
+png("pr1sim.png", width=800, height=800, units='px')
+par(cex.lab=2) 
+par(cex.axis=2) 
 boxplot(porc ~ dim, 
 data =  registro,
-main="Probabilidad de regreso al punto de origen",
 xlab="Dimensi\u{F3}n",
 ylab="Porcentaje de regreso al punto de origen",
 col=rainbow(8, alpha=0.2),
