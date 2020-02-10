@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 maximo = 50
 dim = 30
 num = dim**2
+donde=open ('demo.txt', 'w')
 for prob in range(11):
     prob /= 10
     for replicas in range(10):
@@ -24,7 +25,6 @@ for prob in range(11):
             if iteraciones == maximo:
                 print("matanza obligatoria")
                 break
-            donde=open ('demo.txt', 'w')
             print(prob,iteraciones, file=donde)
             donde.close()
         print(prob, replicas, iteraciones)
