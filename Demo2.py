@@ -24,6 +24,9 @@ for prob in range(11):
             if iteraciones == maximo:
                 print("matanza obligatoria")
                 break
+            donde=open ('demo.txt', 'w')
+            print(prob,iteraciones, file=donde)
+            donde.close()
         print(prob, replicas, iteraciones)
 
 
