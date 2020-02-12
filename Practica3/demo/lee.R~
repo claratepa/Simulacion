@@ -1,3 +1,0 @@
-datos = read.csv("mejor.txt", header=FALSE)
-vector = datos$V1
-print(vector)
