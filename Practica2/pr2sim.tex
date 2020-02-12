@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Aut\'omata celular}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+La pr\'actica consiste en diseñar y ejecutar una simulaci\'on del juego de la vida en una rejilla de 30 por 30 celdas para determinar el n\'umero de iteraciones hasta que mueran todas, variando la probabilidad inicial de 'celda viva' entre cero y uno en pasos de 0.1 \cite{Eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para determinar el n\'umero de iteraciones necesarias hasta que mueran todas las celdas se realiz\'o una simulaci\'on con el programa Python en su versi\'on 3.8.1.
+
+
+El experimento consisti\'o en simular el juego de la vida en dos dimensiones, con treinta celdas en cada dimensi\'on.  La probabilidad de celda viva en el inicio se vari\'o en el rango de cero a uno con pasos de 0.1.  Se realizaron diez repeticiones para cada probabilidad, siendo 50 el n\'umero mayor de iteraciones permitidas, es decir, al llegar a 50 iteraciones, si a\'un hab\'ian celdas vivas se proced\'ia a ``matanza obligatoria''.
+
+
+Los datos obtenidos fueron graficados en un diagrama de cajas y bigotes, en el que es posible visualizar el efecto de la probablidad de celdas vivas iniciales sobre el n\'umero de ciclos necesarios para que todas las celdas mueran.
+
+
+\section{Resultados y Discusi\'on}\label{res}
+
+Al ejecutar la simulaci\'on en python se obtiene una matriz de datos
+correspondiente a la cantidad de iteraciones realizadas hasta que todas las celdas mueren de acuerdo a la probablidad de celdas vivas en el inicio de la simulaci\'on.  La matriz generada se guard\'o en un archivo de texto que se subi\'ó en el repositorio de GitHub \url{https://github.com/claratepa/Simulacion/blob/master/Practica2/pr2simdata.txt}.
+
+Los datos muestran que cuando la probabilidad de celdas vivas en el inicio es cercana a o.5 el n\'umero de ciclos de vida aumenta, por el contrario, cuando la probabilidad de celdas vivas iniciales se acerca a uno o a cero el numero de ciclos de vida disminuye dr\'asticamente.  Tambi\'en se puede inferir que cuando la  probabilidad de celdas vivas al inicio se acerca al cero, como en el caso de 0.1 y 0.2, el rango de variabilidad de los ciclos de vida es amplio, se pueden presentar r\'eplicas en las que el numero de ciclos es significativamente mayor al promedio, mientras que para el caso de la probabilidad de celdas vivas al inicio que se acerca a uno, como el caso de 0.8 y 0.9 no se presenta esta particularidad y el n\'umero de ciclos de vida posee un rango de variabilidad muy pequeño.
+
+
+\section{Conclusiones}\label{con}   
+
+La probabilidad de celdas vivas en el inicio incide directamente en la cantidad de ciclos de vida que se pueden generar.
+
+\printbibliography
+\end{document}
