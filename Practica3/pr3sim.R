@@ -1,9 +1,10 @@
 datosprimos = read.csv("ordenado.txt", header=FALSE)
-vectorp = datosprimos$V1
+n = dim(datosprimos)
+pocos = 500 # para probar que funcione sin que demore
+vectorp = datosprimos$V1[0:pocos]
+print(length(vectorp))
 vectornp=vectorp*5
 vectorc=c(vectorp,vectornp)
-
-t <- proc.time()
 
 primo <- function(n) {
     if (n == 1 || n == 2) {
@@ -34,8 +35,10 @@ for (r in 1:replicas) {
     at <- c(at, system.time(foreach(n = sample(original), .combine=c) %dopar% primo(n))[3]) 
 }
 stopImplicitCluster()
-proc.time() - t
 summary(ot)
 summary(it)
 summary(at)
-
+# lee http://www.sthda.com/english/wiki/paired-samples-t-test-in-r
+print(t.test(ot, it, paired = TRUE, alternative = "two.sided"))
+print(t.test(at, it, paired = TRUE, alternative = "two.sided"))
+print(t.test(ot, at, paired = TRUE, alternative = "two.sided"))
