@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Teor\'ia de Colas}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+La pr\'actica consiste en examinar las diferencias en los tiempos de ejecuci\'on de los diferentes ordenamientos cuando se var\'ia el n\'umero de los n\'ucleos asignados al cluster \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para la simulaci\'on se us\'o una matriz de datos de n\'umeros primos descargado de \url{https://primes.utm.edu/lists/small/millions/} que fue modificada para tener una matriz resultante con los n\'umeros primos desde uno hasta cinco millones con un total de 348,513 entradas.  A partir de esta matriz se cre\'o un vector de datos para realizar la simulaci\'on.  Teniendo el vector de datos de números primos, se cre\'o un vector de n\'umeros no primos mediante la multiplicaci\'on del vector de n\'umeros primos por cinco.
+
+
+Para examinar los tiempos de ejecuci\'on con diferente n\'umero de n\'ucleos asignados al cluster y hacer el respectivo tratamiento estad\'istico se us\'o R en su versi\'on 3.6.2.
+
+
+La pr\'actica consisti\'o en ejecutar la b\'usqueda de n\'umeros primos en los vectores creados, asignando las tareas a  realizar a cuatro y siete n\'ucleos.  Las tareas se realizaron en diferente orden, es decir, primero realiz\'ó la b\'usqueda en los n\'umeros primos y despu\'es en los n\'umeros no primos, despu\'es realiz\'o la b\'usqueda primero en los n\'umeros no primos y despu\'es en los n\'umeros primos y por \'ultimo, realiz\'o la b\'usqueda tomando los n\'umeros de forma aleatoria.
+
+Se realizaron diez r\'éplicas para cada orden y se evalu\'o el tiempo que tard\'o cada ejecuci\'on.
+
+
+\section{Resultados y Discusi\'on}\label{res}
+
+El resumen estad\'istico de los tiempos de ejecuci\'on est\'a dado en el cuadro \ref{t1}\\
+
+
+\begin{table} 
+ \caption{datos esta\'isticos de los tiempos de ejecuci\'on (en segundos) para 4 y 7 n\'ucleos y en su diferente orden.  Original: Primero la matriz de n\'umeros y primos y despu\'es la matriz de n\'umeros no primos; Invertida: primero la matriz de n\'umeros no primos y despu\'es la matriz de n\'umeros primos; Aleatoria: ejecuci\'on aleatoria de las matrices.  min: m\'inimo, 1st qu: primer cuartil, med: mediana, mean: media, 3rs qu: tercer cuartil, max: m\'aximo}
+ \label{t1}
+ \begin{center}
+ \begin{tabular}{rrrrrrr}
+\texttt{Ordenamiento} & \texttt{min} & \texttt{1st qu} &\texttt{median} & \texttt{mean}  & \texttt{3rd qu} & \texttt{max} \\
+Original (4 n\'ucleos) & 471.6 & 577.5 & 666.5 & 1792.9 & 1706.7 & 7503.3 \\ 
+Invertido (4 n\'ucleos) & 577.6 & 577.8 & 627.9 & 1246.6 & 758.8 & 5284.9\\ 
+Aleatorio(4 n\'ucleos) & 587.6 & 590.1 & 592.3 & 1623.2 & 893.5 & 7215.1 \\ 
+Original (7 n\'ucleos) & 319.1 & 320.4& 321.5 & 350.2 & 328.5 & 510.2 \\ 
+Invertido (7 n\'ucleos) & 321.3 & 322.3 & 322.8 & 412.9 & 388.3 & 873.5 \\ 
+Aleatorio (7 n\'ucleos) & 323.1 & 326.0 & 326.7 & 374.6 & 327.8 & 579.4 \\ 
+\end{tabular}
+\end{center}
+\end{table}
+
+
+Los datos muestran claramente el aumento en el tiempo de ejecuci\'on al usar un menor n\'umero de n\'ucleos en la ejecuci\'on de tareas.  Al analizar los tiempos de ejecuci\'on seg\'un el ordenamiento en las tareas se observa una incongruencia entre los datos, mientras que para los an\'alisis realizados con cuatro n\'ucleos, fue el ordenamiento invertido el que se ejecut\'o de manera m\'as r\'apida, fue \'este ordenamiento, el m\'as tardado en la ejecuci\'on con siete n\'ucleos.  Adicionalmente, se calcul\'o el tiempo empleado para la ejecuci\'on de los tres ordenamientos en ambos n\'ucleos.  En el an\'alisis realizado por cuatro n\'ucleos el tiempo total fue de aproximadamente diez horas (35904.89), mientras que trabajando con siete n\'ucleos se tard\'o aproximadamente tres horas (11408.63).  Estos datos confirman la eficiencia que ofrece el aprovechamiento de los n\'ucleos al calendarizar las tareas a realizar.
+
+
+\section{Conclusiones}\label{con}   
+
+El n\'umero de n\'ucleos asignados a la ejecuci\'on de tareas tiene un gran impacto en la rapidez con la que \'estas se realizan, sin embargo, no fue posible establecer la influencia en el ordenamiento de las tareas sobre el tiempo de ejecuci\'on.
+
+\printbibliography
+\end{document}
