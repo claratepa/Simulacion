@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{M\'etodo Monte Carlo}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+ La pr\'actica consite en determinar el tamaño de muestra requerido por cada lugar decimal de precisión del estimado obtenido para el integral, comparando con Wolfram Alpha para por lo menos desde uno hasta siete decimales\cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para determinar el tamaño de muestra requerido para aumentar la precisi\'on del c\'alculo de la integral se us\'o R en su versi\'on 3.6.2.
+
+
+La rutina se diseñ\'o variando el tamaño de la muestra (10, 100, 1000, 10000, 100000) y realizando 40 repeticiones para cada uno de ellos.  Posteriormente se calculó el error y se graficaron los datos en un diagrama de cajas y bigotes.
+
+
+
+\section{Resultados y Discusi\'on}\label{res}
+
+Los datos obtenidos muestran que al aumentar el tamaño de la muestra el estimado calculado de la integral se va volviendo m\'as preciso.  En la figura \ref{f1} se aprecia el diagrama de cajas y bigotes mostrando el tamaño de la muestra en el eje X y la aproximaci\'on calculada en el eje Y, la l\'inea roja representa el valor obtenido en Wolfram Alpha \cite{wa}.  El diagrama muestra claramente que cuando la muestra tiene un tamaño pequeño el estimado calculado parra la integrar presenta altas variaciones, la mediana se ubica muy cerca del valor Wolfram Alpha pero la caja es muy alargada lo que evidencia lo antes mencionado.  Al aumentar el tamaño de la muestra, empiezan a disminuir el tamaño de las cajas, es decir que la aproximaci\'on se va volviendo m\'as precisa.  Para el tamaño de muestra mayor empleado en \'esta pr\'actica (100000) no se alcamza a apreciar una caja, se presenta casi como una l\'inea indicando la estrecha distribuci\'on de los valores. 
+
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=10cm]{Pr5sim.png}
+  \end{center}
+  \caption{Aproximaci\'on Monte Carlo }
+  \label{f1}
+\end{figure}
+
+El error con respecto al valor dado en Wolfram Alpha tambi\'en fue calculado mediante la diferencia entre la aproximaci\'on obtenida mediante la rutina diseñada para  \'esta pr\'actica y el valor de Wolfram Alpha.  
+
+En la figura \ref{f2} se muestran los valores del error, en el eje X se ubican las muestras y en el eje Y el error calculado, la l\'inea roja se ubica en cero.  la distribuci\'on y el comportamiento de los datos es similar a los de la figura anterior, es decir, en la medida que aumenta el tamaño de la muestra, el estimado calculado se acerca m\'as al valor calculado en Wolfram Alpha y por lo tanto el error se va volviendo m\'as pequeño. 
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=10cm]{Pr5sim1.png}
+  \end{center}
+  \caption{Error en la aproximaci\'ón calculada mediante el m\'etodo Monte Carlo }
+  \label{f2}
+\end{figure}
+
+
+
+\section{Conclusiones}\label{con}   
+
+El aumento en el tamaño de la muestra tiene un efecto directo en la precisi\'on, cuando se intenta calcular una integral mediante el m\'etodo Monte Carlo.  Debido a que las muestras son tomadas de forma pseudoaleatoria el aumentar el tamaño de muestra y las repeticiones aumenta la precisi\'on de la aproximaci\'on obtenida.
+
+\printbibliography
+\end{document}
