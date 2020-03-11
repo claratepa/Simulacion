@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Sistema Multiagente}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+ La pr\'actica consite en estudiar el efecto de la variaci\'on en la probabilidad de agentes vacunados (de cero a uno, en pasos de 0.1) en el inicio de la rutina sobre el porcentaje m\'aximo de los agentes infectados durante la simulaci\'on \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para determinar el efecto de la probabilidad de vacunaci\'on sobre los agentes infectados y su respectivo tratamiento estad\'istico se us\'o R en su versi\'on 3.6.2.
+
+
+La rutina se diseñ\'o variando la probabilidad de vacunaci\'on entre cero y uno en pasos de 0.1, se realizaron 25 repeticiones de cada probabilidad y se calcul\'o el m\'aximo n\'umero de infectados en cada simulaci\'on.  Con los datos obtenidos se realiz\'o una gr\'afica de cajas y bigotes y se hizo la prueba estad\'istica ANOVA.  
+
+
+
+\section{Resultados y Discusi\'on}\label{res}
+
+La probabilidad de vacunaci\'on inicial tiene un efecto directo sobre el n\'umero m\'aximo de infectados en la simulaci\'on.  A medida que aumenta la probabilidad de vacunaci\'on inicial, disminuye la cantidad maxima de infectados.  En la figura \ref{f1} se puede observar f\'acilmente el comportamiento del n\'umero m\'aximo de infectados en relaci\'on con la probabilidad de agentes vacunados.
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=10cm]{Pr6sim.png}
+  \end{center}
+  \caption{Porcentaje m\'aximo de infectados }
+  \label{f1}
+\end{figure}
+
+Aunque al graficar los datos se pueden apreciar las diferencias entre las probabilides de vacunaci\'on, se realizo la prueba estad\'istica ANOVA para determinar si las diferencias son significativas (cuadro \ref{t1}).  El an\'alisis estad\'istico muestra  una significancia menor a 0.05 por lo que se rechaza la hip\'otesis nula y se puede afirmar que existen diferencias significativas en el n\'umero m\'aximo de infectados al variar la probabilidad de vacunaci\'on en una simulaci\'on de sistema multiagente.   
+ 
+
+\begin{table} 
+ \caption{Comparaci\'on de los porcentajes del m\'aximo de agentes infectados con respecto a la probabilidad de vacunaci\'on}
+ \label{t1}
+ \begin{center}
+ \begin{tabular}{r|r|r|r|r|r}
+\texttt{} & \texttt{GL} & \texttt{Suma Cuad.} &\texttt{Media Cuad.} & \texttt{F}  & \texttt{Pr(>F)} \\
+\hline
+datos-probabilidad & 1 & 60757 & 60757 & 239.7 & <2e-16\\ 
+\hline
+Residuales & 273& 69189 & 253 \\ 
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Conclusiones}\label{con}   
+
+El aumento de la probabilidad de vacunaci\'on disminuye el porcentaje del n\'umero m\'aximo de infectados en una simulaci\'on de sistema multiagente.
+\printbibliography
+\end{document}
