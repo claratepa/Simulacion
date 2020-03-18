@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{B\'usqueda Local}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+ La pr\'actica consite en implementar una optimizaci\'on heur\'istica de b\'usqueda local para encontrar el m\'aximo local de una funci\'on dada.  La visualizaci\'on del proceso de la b\'usqueda se har\'a  mediante la proyecci\'on en un  plano \textit{xy} cuyas im\'agenes se compilaran para hacer una animaci\'on \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para realizar la b\'usqueda del m\'aximo local de la funci\'on y obtener las respectivas im\'agenes se us\'o R en su versi\'on 3.6.2.
+
+
+En la rutina se tuvieron en cuenta las restricciones \textit{-3 < x, y < 3} y se usaron movimientos aleatorios en los ejes \textit{x} y \textit{y} tomando ocho posiciones de vecino de las cuales se selecciona la que logra el mayor valor para la funci\'on.  Se realizaron quince b\'usquedas simult\'aneas en pasos de 1.5 con un total de cien pasos.
+
+La animaci\'on se realiz\'o compilando las cien im\'agenes obtenidas en la b\'usqueda local a trav\'es de un servicio web \cite{gif}
+
+
+\section{Resultados y Discusi\'on}\label{res}
+
+En la figura \ref{f1} se pueden apreciar los pasos 1, 32 y 68 de las quince b\'usquedas locales simult\'aneas realizadas.  Se observa claramente como a medida que aumentan los pasos, los puntos (resultado de la funci\'on) tienden a dirigirse hacia su posici\'on m\'axima.
+
+\begin{figure}[htbp]
+\centering
+\subfigure[Paso 1]{\includegraphics[width=60mm]{./Pr7sim_1001.png}}
+\subfigure[Paso 32]{\includegraphics[width=60mm]{./Pr7sim_1032.png}}
+\subfigure[Paso 68]{\includegraphics[width=60mm]{./Pr7sim_1068.png}}
+\caption{B\'usqueda Local} \label{f1}
+\end{figure}
+
+La animaci\'on obtenida  se subi\'o en el repositorio de GitHub \url{https://github.com/claratepa/Simulacion/blob/master/Practica7/animacion.gif}.  En ella se puede ver el comportamiento de las quince r\'eplicas realizadas en la b\'usqueda.  Cada uno de los puntos se va acercando al centro, es decir, al m\'aximo de la funci\'on, al aumentar los pasos hasta que todos los puntos se aglomeran en el mismo sitio.
+
+
+
+
+\section{Conclusiones}\label{con}   
+
+El m\'etodo de la b\'usqueda local logra optimizar una funci\'on.  Al aumentar la cantidad de pasos aumenta la precisi\'on, en el caso espec\'ifico de la pr\'actica hacia el valor m\'aximo de la funci\'on.  
+
+\printbibliography
+\end{document}
