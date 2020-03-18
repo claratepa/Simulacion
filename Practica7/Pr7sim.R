@@ -111,10 +111,10 @@ for(j in 1:100){
   d <- melt(z)
   names(d) <- c("x", "y", "z")
   if(j < 10){
-    nombre <-  paste0("P_100", j, ".png", sep="")
+    nombre <-  paste0("Pr7sim_100", j, ".png", sep="")
   }else if(j>= 10 & j < 100){ 
-    nombre <-  paste0("P_10", j, ".png", sep="") }else{
-      nombre <-  paste0("P_1", j, ".png", sep="")
+    nombre <-  paste0("Pr7sim_10", j, ".png", sep="") }else{
+      nombre <-  paste0("Pr7sim_1", j, ".png", sep="")
     }
   png(nombre, width=500, height=500)
   plot(levelplot(z ~ x * y, data = d))
@@ -166,4 +166,3 @@ for(j in 1:100){
 
   graphics.off() 
 }
-system("convert -delay 80 *.png animacion.gif")
