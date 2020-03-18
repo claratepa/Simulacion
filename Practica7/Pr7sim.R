@@ -139,7 +139,7 @@ for(j in 1:100){
   trellis.focus("panel", 1, 1, highlight=FALSE)
   lpoints(vx7[j], vy7[j], pch=7, col="black", cex=1)
   trellis.unfocus()
-   trellis.focus("panel"[1], 1, 1, highlight=FALSE)
+  trellis.focus("panel"[1], 1, 1, highlight=FALSE)
   lpoints(vx8[j], vy8[j], pch=8, col="black", cex=1)
   trellis.unfocus()
   trellis.focus("panel", 1, 1, highlight=FALSE)
