@@ -1,0 +1,61 @@
+ \documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Modelo de Urnas}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+La pr\'actica consite en paralelizar la simulaci\'on dada en clase y hacer la medici\'on del tiempo correspondiente, adicionalmente se variar\'an los valores asignados a los c\'umulos y a las part\'iculas para observar su comportamiento en el procesamiento paralelo y no paralelo \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para realizar la paralelizaci\'on de la rutina, hacer las gr\'aficas y realizar el respectivo tratamiento estad\'istico se us\'o R en su versi\'on 3.6.2.
+
+
+Primero se realiz\'o la rutina sin paralelizar, variando el n\'umero de part\'iculas (100000, 1000000 y 10000000) y el tama\~no de los c\'umulos (100, 1000 y 10000), haciendo 30 r\'eplicas para cada combinaci\'on.  Posteriormente se hizo la rutina paralelizando las tareas, con los mismos par\'ametros descritos anteriormente, para lograr una mayor eficiencia.
+
+Se aplic\'o una prueba t-student para verificar si existe diferencia significativa entre los tiempos empleados por el programa para ejecutar las rutinas en forma paralelizada y no paralelizada.  
+
+Se construyeron gr\'aficos de cajas y bigotes para observar la variaci\'on en los tiempos de ejecuci\'on de acuerdo al n\'umero de part\'iculas y al tama\~no de los c\'umulos.
+
+\section{Resultados y Discusi\'on}\label{res}
+
+Los datos obtenidos del tiempo empleado en cada ejecuci\'on del proceso paralelizado y no paralelizado se sometieron a la prueba de Shapiro-Wilk para verificar la normalidad en los datos, como los datos resultaron normales se procedi\'o a realizar la prueba T-student para constatar si los datos obtenidos tienen una diferencia significativa.
+
+El valor de p obtenido fue de 0.03632, el cual es menor al valor de significancia, por lo que se rechaza la hip\'otesis nula y se concluye que existe una diferencia significativa entre los tiempos de ejecuci\'on entre los dos procesos.  El tiempo empleado en el proceso paralelizado de la rutina result\'o menor por lo que se puede concluir que paralelizar el modelo de urnas resulta efectivo.
+
+Adicionalmente, se analizaron los datos obtenidos seg\'un el n\'umero de part\'iculas y el tama\~no de los c\'umulos.  En la figura \ref{f1} se observan las gr\'aficas de cajas y bigotes correspondientes al tiempo de ejecuci\'on empleado seg\'un el tama\~no de los c\'umulos.  Al analizar las gr\'aficas se aprecian las diferencias obtenidas entre los tiempo de ejecuci\'on seg\'un el proceso, para los c\'umulos de menor tama\~no (100) el proceso paralelizado toma m\'as tiempo, sin embargo para los otros dos tama\~nos de c\'umulos el proceso paralelizado resulta m\'as eficiente. 
+
+\begin{figure}[htbp]
+\centering
+\subfigure[No Paralelizado]{\includegraphics[width=60mm]{./cumnopar.png}}
+\subfigure[Paralelizado]{\includegraphics[width=60mm]{./cumpar.png}}
+\caption{C\'umulos} \label{f1}
+\end{figure}
+
+En la figura \ref{f2} se observan las gr\'aficas correspondientes al n\'umero de part\'iculas.  En este caso se puede ver que para los dos primeros par\'ametros el tiempo de ejecuci\'on es muy similar, en el tercer par\'ametro hay una ligera diferencia, de igual forma, solo para el tercer par\'ametro se aprecia una peque\~na diferencia en los tiempo de ejecuci\'on siendo el proceso paralelizado el m\'as eficiente.
+
+\begin{figure}[htbp]
+
+\subfigure[No Paralelizado]{\includegraphics[width=60mm]{./partnopar.png}}
+\subfigure[Paralelizado]{\includegraphics[width=60mm]{./partpar.png}}
+\caption{Part\'iculas} \label{f2}
+\end{figure}
+
+
+
+\section{Conclusiones}\label{con}   
+
+El  modelo de urnas resulta m\'as eficaz cuando el proceso se paraleliza.  El n\'umero de part\'iculas no tiene mayor efecto sobre los tiempos de ejecuci\'on, sin embargo el n\'mero de c\'umulos si incide en los tiempos de ejecuci\'on.
+\printbibliography
+\end{document}
