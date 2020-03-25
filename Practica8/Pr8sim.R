@@ -18,8 +18,8 @@ inicio<-function(n,k){
         }
       }
     }
+    cat(n, k, head(cumulos), '\n')
     return(cumulos)
-
 }
 rotura <- function(x) {
   return (1 / (1 + exp((c - x) / d)))
@@ -53,14 +53,18 @@ unirse <- function(tam, cuantos) {
   }
 }
 
-particulas<-c(100000,1000000,10000000)
-aglomerados<-c(100,1000,10000)
-replicas<-30
+# reducciones para mostrar detalles en figuras
+particulas<-c(10000, 100000, 1000000) # c(100000,1000000, 10000000)
+aglomerados<-c(20, 200, 2000) # c(100,1000,10000)
+replicas<-10 # 30
+
 noparalelo<-data.frame()
+
+print("No paralelo")
 
 for(k in aglomerados){
   for(n in particulas){
-    for(replica in 1:replicas){ 
+    for(replica in 1:replicas){
     tiempo<-0
     tinicial<-Sys.time()
     cumulos<-inicio(n,k)
@@ -72,7 +76,7 @@ for(k in aglomerados){
     names(freq) <- c("tam", "num")
     freq$tam <- as.numeric(levels(freq$tam))[freq$tam]
     duracion <- 5
-    
+
     for (paso in 1:duracion) {
       assert(sum(cumulos) == n)
       cumulos <- integer()
@@ -120,8 +124,8 @@ for(k in aglomerados){
     }
     tfinal<-Sys.time()
     tiempo<-tfinal-tinicial
-    noparalelo<-data.frame(rbind(noparalelo,c(replica,k,n,tiempo)))  
- }   
+    noparalelo<-data.frame(rbind(noparalelo,c(replica,k,n,tiempo)))
+ }
 }
 }
 names(noparalelo)<-c("Replica","Cumulos","Particulas","Tiempo")
@@ -190,18 +194,16 @@ etapa1<-function(i){
   else {
     cumulos <- rep(1, urna$num)
     return(cumulos)
-  } 
-} 
+  }
+}
 etapa2<-function(i){
   urna <- freq[i,]
   cumulos <- unirse(urna$tam, urna$num)
   return(cumulos)
 }
 
-particulas<-c(100000,1000000, 10000000)
-aglomerados<-c(100,1000,10000)
-replicas<-30
 paralelo<-data.frame()
+print("Paralelo")
 
 cluster <- makeCluster(detectCores() - 1)
 
@@ -229,9 +231,9 @@ for(k in aglomerados){
         clusterExport(cluster,"assert")
         clusterExport(cluster, "union")
         clusterExport(cluster,"unirse")
-       
+
         assert(sum(cumulos) == n)
-        cumulos <- (parSapply(cluster, 1:dim(freq)[1], etapa1))  
+        cumulos <- (parSapply(cluster, 1:dim(freq)[1], etapa1))
         cumulos <- unlist(cumulos)
         assert(sum(abs(cumulos)) == n)
         assert(length(cumulos[cumulos == 0]) == 0) # que no haya vacios
@@ -240,7 +242,7 @@ for(k in aglomerados){
         freq$tam <- as.numeric(levels(freq$tam))[freq$tam]
         assert(sum(freq$num * freq$tam) == n)
         clusterExport(cluster, "freq")
-        cumulos <- (parSapply(cluster, 1:dim(freq)[1], etapa2))  
+        cumulos <- (parSapply(cluster, 1:dim(freq)[1], etapa2))
         cumulos <- unlist(cumulos)
         juntarse <- -cumulos[cumulos < 0]
         cumulos <- cumulos[cumulos > 0]
@@ -284,6 +286,8 @@ h1[[2]] < 0.05
 
 t.test(noparalelo$Tiempo, paralelo$Tiempo, paired = TRUE, alternative = "two.sided")
 
+options(scipen=5)
+tope = 1 # con tus datos, probablemente conviene un 4
 png("cumnopar.png", width = 12, height = 12,
      units = "cm", res = 600, pointsize = 10)
 boxplot(Tiempo~Cumulos,
@@ -291,43 +295,47 @@ data=noparalelo,
 boxwex=0.3,
 xlab="Cantidad de C\u00FAmulos",
 ylab="Tiempo (s)",
+ylim=c(0, tope),
 col=rainbow(3, alpha=0.2),
 border = rainbow(3, v=0.6)
 )
-dev.off() 
+dev.off()
 
 png("partnopar.png", width = 12, height = 12,
      units = "cm", res = 600, pointsize = 10)
 boxplot(Tiempo~Particulas,
 data=noparalelo,
 boxwex=0.3,
+ylim=c(0, tope),
 xlab="Cantidad de Part\u00edculas",
 ylab="Tiempo (s)",
 col=topo.colors(3, alpha=0.2),
 border = topo.colors(3)
 )
-dev.off() 
+dev.off()
 
 png("cumpar.png", width = 12, height = 12,
      units = "cm", res = 600, pointsize = 10)
 boxplot(Tiempo~Cumulos,
 data=paralelo,
 boxwex=0.3,
+ylim=c(0, tope),
 xlab="Cantidad de C\u00FAmulos",
 ylab="Tiempo (s)",
 col=rainbow(3, alpha=0.2),
 border = rainbow(3, v=0.6)
 )
-dev.off() 
+dev.off()
 
 png("partpar.png", width = 12, height = 12,
      units = "cm", res = 600, pointsize = 10)
 boxplot(Tiempo~Particulas,
 data=paralelo,
 boxwex=0.3,
+ylim=c(0, tope),
 xlab="Cantidad de Part\u00edculas",
 ylab="Tiempo (s)",
 col=topo.colors(3, alpha=0.2),
 border = topo.colors(3)
 )
-dev.off() 
+dev.off()
