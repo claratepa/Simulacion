@@ -1,0 +1,76 @@
+ \documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Interacciones entre Part\'iculas}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+La pr\'actica consiste en simular las interacciones de las part\'iculas teniendo en cuenta su carga, masa y las fuerzas de atracci\'on, repulsi\'on y gravedad para analizar la distribuci\'on de la velocidad de dichas part\'iculas \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para realizar la simulaci\'on y elaborar las respectivas gr\'aficas se us\'o R en su versi\'on 3.6.2.
+
+Se realiz\'o una rutina para un total de cincuenta part\'iculas, cada una con una carga aleatoria entre $-1$ y $1$ y una masa igualmente aleatoria entre $1$ y $100$ en un total de cincuenta pasos.  Las cargas del mismo signo generan fuerzas de repulsi\'on y las cargas de signo contrario producen fuerzas de atracci\'on.  Adicionalmente se presenta la gravedad, que  ejercer\'a una fuerza que ser\'a mayor a medida que aumenta la masa.
+  
+
+Se construyeron histogramas para observar el desplazamiento de las part\'iculas en cada paso de la ejecuci\'on y la cantidad de part\'iculas que realizan el movimiento.  Adicionalmente, se elabor\'o una matriz de dispersi\'on para observar el comportamiento de las part\'iculas de acuerdo a las distintas variables tenidas en cuenta.
+
+
+\section{Resultados y Discusi\'on}\label{res}
+
+En la figura \ref{f1}  se observa el primer paso de las part\'iculas, se presenta la matriz de dispersi\'on (a), la posici\'on de las part\'iculas (b), el histograma con respecto al eje $x$ (c) y el histograma con respecto al eje $y$ (d).
+
+\begin{figure}[htbp]
+\centering
+\subfigure[]{\includegraphics[width=60mm]{./pr9_comp01.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_t01.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_histx_01.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_histy_01.png}}
+\caption{Paso 1} \label{f1}
+\end{figure}
+
+
+En la matriz de dispersi\'on se puede ver que para todas las correlaciones de las variables (posici\'on en $x$ ($x$), posici\'on en $y$ ($y$), carga ($c$) y masa ($m$) las part\'iculas se encuentran dispersas.
+
+
+
+
+En la figura \ref{f2} se observan los mismos gr\'aficos, pero esta vez en el paso $25$ que corresponde a la mitad de la simulaci\'on.   En los histogramas (c y d) se puede apreciar que hacia las coordenadas $x=0.6$ y $y=0.4$ la velocidad de las part\'iculas aumenta.  En la matriz de dispersi\'on (a) y en el gr\'afico de posici\'on (b) se puede observar que las part\'iculas que tienen una carga cercana a $0$ y una masa de tama\~no mediano tienen movimientos muy lentos.
+
+\begin{figure}[htbp]
+
+\subfigure[]{\includegraphics[width=60mm]{./pr9_comp25.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_t25.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_histx_25.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_histy_25.png}}
+\caption{Paso 25} \label{f2}
+\end{figure}
+
+Finalmente, en la figura \ref{f3} se observa lo que sucede al final de la simulaci\'on, en el paso $50$.  En estas gr\'aficas se puede observar que las part\'iculas siguen la misma tendencia que mostraban en el paso $25$, es decir, que las part\'iculas tienden a tener menos desplazamientos o a mantenerse inm\'oviles.  
+
+\begin{figure}[htbp]
+
+\subfigure[]{\includegraphics[width=60mm]{./pr9_comp50.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_t50.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_histx_50.png}}
+\subfigure[]{\includegraphics[width=60mm]{./pr9_histy_50.png}}
+\caption{Paso 50} \label{f3}
+\end{figure}
+
+\section{Conclusiones}\label{con}   
+
+La simulaci\'on realizada permite concluir que al adicionar la masa y la fuerza de gravedad, \'estas impactan en la velocidad de movimiento de las part\'iculas, tendiendo a una reducci\'on, probablemente derivada de las m\'ultiples fuerzas presentes de las part\'iculas que al acercarse se van anulando y van impidiendo el movimiento de las mismas.  
+
+\printbibliography
+\end{document}
