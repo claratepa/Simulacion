@@ -1,0 +1,69 @@
+ \documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Algoritmo Gen\'etico}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+La pr\'actica consiste en variar el problema de la mochila, creando tres escenarios diferentes.  En el primero los pesos y valores generados son independientes; en el segundo se generan los pesos y posteriormente se correlacionan los valores y en el tercero se generan los pesos y posteriormente se correlacionan de manera inversa los valores.  El objetivo es evaluar la variaci\'on en los tiempos de ejecuci\'on de acuerdo a los escenarios expuestos en una rutina paralelizada \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para realizar la simulaci\'on, hacer el tratamiento estad\'istico y elaborar las respectivas gr\'aficas se us\'o R en su versi\'on 3.6.2.
+
+Se realizaron las rutinas para los tres escenarios planteados en el objetivo y se var\'io el n\'umero de objetos (25, 50, 75).  Para todas las simulaciones se usaron cincuenta pasos y cincuenta repeticiones.  Se hizo un an\'alisis de varianzas (ANOVA) para evaluar si existen diferencias significativas en los tiempos de ejecuci\'on de acuerdo a la variaci\'on en el n\'umero de objetos y se realizaron gr\'aficos de l\'ineas para observar el comportamiento de los tiempos de ejecuci\'on con respecto a los pasos de cada rutina.
+
+\section{Resultados y Discusi\'on}\label{res}
+
+En la figura \ref{f1}  se observan los tiempos de ejecuci\'on en segundos para la simulaci\'on con 25 objetos.  La l\'inea azul corresponde a los datos obtenidos para los datos de peso y valor generados de forma independiente, la l\'inea roja corresponde a los datos correlacionados y la l\'inea verde a los datos correlacionados de forma inversa.  El tiempo de ejecuci\'on de los datos inversamente correlacionados es el mas alto, sin embargo los tiempos de ejecuci\'on de los tres escenarios son muy similares.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{Pr10sim25.png}
+  \end{center}
+  \caption{25 Objetos}
+  \label{f1}
+\end{figure}
+
+En la figura \ref{f2}  se observan los tiempos de ejecuci\'on en segundos para la simulaci\'on con 50 objetos.  La correspondencia de los colores es la misma indicada en la figura \ref{f1}.  En esta simulaci\'on se observa que los tiempos de ejecuci\'on mas bajos son los de los datos inversamente correlacionados, mientras que los correlacionados presentan los picos mas altos.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{Pr10sim50.png}
+  \end{center}
+  \caption{50 Objetos}
+  \label{f2}
+\end{figure}
+
+
+En la figura \ref{f3}  se observan los tiempos de ejecuci\'on en segundos para la simulaci\'on con 75 objetos.  La correspondencia de los colores es la misma indicada en la figura \ref{f1}.  Los tiempos de ejecuci\'on para los tres escenarios tienen un comportamiento muy similar.  Hacia el paso 35, aproximadamente, se presenta un pico en el tiempo de ejecuci\'on de los datos independientes.
+
+\begin{figure}
+  \begin{center}
+    \includegraphics{Pr10sim75.png}
+  \end{center}
+  \caption{75 Objetos}
+  \label{f3}
+\end{figure}
+
+El an\'alisis de varianza fue realizado para observar el comportamiento en los tiempos de ejecuci\'on en cada uno de los tres escenarios con respecto a la variac\'on de los objetos.  Para todos los conjuntos de datos el valor de F fue mayor a 0.05 por lo que se considera que no hay diferencias significativas entre los resultados.
+
+
+\section{Conclusiones}\label{con}   
+
+
+
+A la luz de los resultados obtenidos se puede decir que no hay una tendencia en los tiempos de ejecuci\'on al variar el n\'umero de objetos en ninguno de los tres escenarios estudiados.
+
+\printbibliography
+\end{document}
