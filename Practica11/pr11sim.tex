@@ -1,0 +1,81 @@
+ \documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Frentes de Pareto}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+La pr\'actica consiste en paralelizar la rutina dada en clase y graficar el porcentaje de soluciones de Pareto en funci\'on del numero de funciones objetivo $k$ con diagramas de viol\'in y cajas de bigote, verificando que los valores sean significativos estad\'isticamente \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para realizar la simulaci\'on, hacer el tratamiento estad\'istico y elaborar las respectivas gr\'aficas se us\'o R en su versi\'on 3.6.2.
+
+La rutina dada en clase se paralelizo y se variaron las funciones objetivo entre dos y diez.  Se realizaron treinta r\'eplicas de cada simulaci\'on con doscientas soluciones.  Los resultados obtenidos se graficaron en un diagrama de viol\'in y cajas y bigotes, para observar la distribuci\'on de los datos y la densidad de la probabilidad.
+
+Para el tratamiento estad\'istico se realizaron los test de $Shapiro-Wilk, Kruskal-Wallis$ y $Pairwise Wilcox$.
+
+\section{Resultados y Discusi\'on}\label{res}
+
+En la Figura \ref{f1} se observa el diagrama de viol\'in obtenido para los porcentajes de las soluciones de Pareto, en el se puede apreciar la tendencia al incremento de las soluciones no dominadas a medida que aumentan las funciones objetivo ($k$).  Aunque en las funciones objetivo del siete al diez se observan algunos datos dispersos, la tendencia se mantiene.
+
+Se realizo una prueba de $Shapiro-Wilk$ en la que se encontr\'o que los datos est\'an distribuidos normalmente, posteriormente se realizo la prueba de $Kruskal-Wallis$, en esta prueba se evidenci\'o que existen diferencias entre los datos.  Finalmente, se realiz\'o la prueba de $Pairwise-Wilcox$ en la que se determin\'o en cuales niveles se presentan las diferencias.
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics [scale=0.7]{Pr11sim.png}
+  \end{center}
+  \caption{Porcentaje de soluciones de Pareto}
+  \label{f1}
+\end{figure}
+
+
+\begin{table} 
+ \caption{Prueba $Pairwise-Wilcox$}
+ \label{t1}
+ \begin{center}
+ \begin{tabular}{r r r r r r r r r}
+\texttt{} & \texttt{2} & \texttt{3} &\texttt{4} & \texttt{5}  & \texttt{6} &\texttt{7} & \texttt{8}  & \texttt{9} \\
+
+3 & TRUE & NA & NA & NA & NA & NA & NA & NA \\ 
+
+4  & TRUE & FALSE & NA & NA & NA & NA & NA & NA \\ 
+
+5  & TRUE & TRUE & FALSE & NA & NA & NA & NA & NA \\ 
+
+6 & TRUE & TRUE & TRUE & TRUE & NA & NA & NA & NA \\ 
+
+7 & TRUE & TRUE & TRUE & TRUE & TRUE & NA & NA & NA \\ 
+
+8 & TRUE & TRUE & TRUE & TRUE & TRUE & FALSE & NA & NA \\ 
+
+9 & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & NA \\ 
+
+10 & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & TRUE & FALSE \\ 
+
+\end{tabular}
+\end{center}
+\end{table}
+
+En la tabla \ref{t1} se aprecian los resultados de la prueba $Pairwise-Wilcox$, para la mayor\'ia de las parejas de datos se observa una diferencia significativa que esta representada por la palabra TRUE, en solo cuatro de las parejas evaluadas no se hall\'o una diferencia significativa (FALSE).
+
+
+\section{Conclusiones}\label{con}   
+
+Al aumentar las funciones objetivo, las funciones no dominadas se incrementan.
+
+
+
+\printbibliography
+\end{document}
