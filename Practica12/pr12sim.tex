@@ -1,0 +1,90 @@
+ \documentclass{article}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{url}
+\usepackage[maxbibnames=99, sorting=none, backend=bibtex]{biblatex}
+\addbibresource{bibpr2sim.bib}
+
+\begin{document}
+\title{\textbf{Red Neuronal}}
+\author{Clara T\'ellez}
+\maketitle
+
+\section{Objetivo}\label{obj}
+
+La pr\'actica consiste en paralelizar la rutina dada en clase y variar las probabilidades asociadas a la generaci\'on de d\'igitos (negro, gris y blanco), en un dise\~no factorial adecuado, para evaluar el desempe\~no neuronal \cite{eli}.
+
+\section{Metodolog\'ia}\label{met}
+
+Para realizar la simulaci\'on, hacer el tratamiento estad\'istico y elaborar las respectivas gr\'aficas se us\'o R en su versi\'on 3.6.2.
+
+La rutina dada en clase se paralelizo y se variaron las probabilidades de aparici\'on de cada color (negro, gris y blanco) como se muestra en el cuadro \ref{t1}.   Se realizaron sesenta repeticiones para cada combinaci\'on.
+
+La primera combinaci\'on es la proporcionada en clase \cite{eli}, las combinaciones 2, 3 y 4 tienen dos probabilidades altas y una baja, las combinaciones 5, 6 y 
+7 tienen dos probabilidades bajas, la combinaci\'on 8 tiene todas las probabilidades altas, la combinaci\'on 9 tiene todas las probabilidades bajas y en la combinaci\'on 10 las probabilidades son de 0.5 para todos los colores.
+
+Se realiz\'o un diagrama de cajas y bigotes para observar el comportamiento de los datos,  Posteriormente se hicieron las pruebas estad\'isticas de {\em Kolmogorov-Smirnov} (lillie.test), para evaluar la normalidad y {\em ANOVA} (aov) para determinar si existen diferencias significativas en los resultados obtenidos.
+
+\begin{table} 
+ \caption{Probabilidades de generaci\'on de d\'igitos}
+ \label{t1}
+ \begin{center}
+ \begin{tabular}{|r|r|r|r|r|r|r|r|r|r|r|}
+\hline
+\texttt{Color} & \texttt{1} & \texttt{2} &\texttt{3} & \texttt{4}  & \texttt{5} &\texttt{6} & \texttt{7}  & \texttt{8} & \texttt{9}  & \texttt{10}\\
+\hline
+Negro& 0.995 & 0.995 & 0.99 & 0.008 & 0.01 & 0.001 & 0.99 & 0.99 & 0.003 & 0.5 \\     
+\hline
+Gris & 0.92 & 0.993 & 0.005 & 0.93 & 0.008 & 0.99 & 0.07 & 0.98 & 0.002 & 0.5 \\ 
+\hline
+Blanco  & 0.002 & 0.001 & 0.991 & 0.97 & 0.98 & 0.08 & 0.01 & 0.97 & 0.001 & 0.5 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+\section{Resultados y Discusi\'on}\label{res}
+
+En la Figura \ref{f1} se observa el diagrama de cajas y bigotes obtenido a partir de los porcentajes de acierto de la red neuronal, en \'este se puede observar que no existen grandes variaciones en los porcentajes de acierto entre las combinaciones.  Para comprobarlo estad\'isticamente primero se llev\'o a cabo un test de {\em Kolmogorov-Smirnov} (lillie.test) en el cual se evidenci\'o la normalidad de los datos, por lo que se procedi\'o a realizar un {\em an\'alisis de varianza} (aov) (cuadro \ref{t2}).
+
+El {\em F value} es superior a $0.05$ lo que evidencia que no existen diferencias significativas para considerar que al menos dos medias sean diferentes, por lo tanto, no se realizan pruebas pareadas.
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics [scale=0.25]{Pr12sim.png}
+  \end{center}
+  \caption{Porcentaje de acierto}
+  \label{f1}
+\end{figure}
+
+
+\begin{table} 
+ \caption{An\'alisis de varianza}
+ \label{t2}
+ \begin{center}
+ \begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\texttt{} & \texttt{Df} & \texttt{Sum Sq} &\texttt{Mean Sq} & \texttt{F value}  & \texttt{Pr (>F)} \\
+\hline
+data12 Combinacion & 1 & 0.00000 & 3.93e-06 & 0.025 & 0.874 \\     
+\hline
+Residuals & 598 & 0.09391 & 1.57e-04 \\ 
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Conclusiones}\label{con}   
+
+El experimento factorial realizado no tiene un efecto en los porcentajes de acierto.
+
+
+\printbibliography
+\end{document}
