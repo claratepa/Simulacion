@@ -64,7 +64,7 @@
 
 \author{Clara T\'ellez \\[0.9mm]}
 
-\title{Estudio isot\'opico de la dieta del tibur\'on martillo}
+\title{Estudio isot\'opico de la dieta de \textbf{\textit{Sphyrna lewini}}}
 
 
 \date{\today}
@@ -82,9 +82,9 @@
 
 \normalsize 
 
-Aqui va el abstract\\ \\
+El conocimiento de la ontogenia de las especies aporta informaci\'on acerca de los nichos tr\'oficos y el rol ecol\'ogico dentro de los ecosistemas. En este trabajo se estudi\'o la ontogenia del tibur\'on martillo (\textbf{\textit{Sphyrna lewini}}) mediante el estudio de los isot\'opos de carbono y nitr\'ogeno de 16 espec\'imenes, de los que se extraj\'o el col\'ageno vertebral obteniendo 101 muestras. Los datos obtenidos se procesaron con el programa R. El is\'otopo de carbono muestra un rango amplio, sugiriendo que la especie se mueve en redes costeras y en redes oce\'anicas. El is\'otopo de nitr\'ogeno evidencia la transferencia materna y el consumo de presas en su mayor\'ia herv\'iboras en los primeros a\~nos de vida.\\ \\
 
-Palabras clave: 
+Palabras clave:  Tibur\'on martillo, Ontogenia, Carbono, Nitr\'ogeno, Vertebras
 \begin{center}\rule{0.9\textwidth}{0.1mm} \end{center}
 \end{abstract}
 
@@ -94,7 +94,7 @@ Palabras clave:
 \section{Introducción}
 Los tiburones son unos de los principales depredadores de los oc\'eanos y por lo tanto desempe\~nan un papel esencial dentro de la red tr\'ofica, son ellos, quienes se encargan de mantener el equilibrio, aliment\'andose de las especies m\'as abundantes o de especies invasoras y favoreciendo la diversidad de las mismas.  Adicionalmente, de forma indirecta mantienen los arrecifes de coral \cite{Clarke}.   \textbf{\textit{Sphyrna lewini}} es una especie de tibur\'on martillo que habita en los mares tropicales y se encuentra tanto en aguas costeras como oce\'anicas \cite{Duncan}.  La uni\'on de la conservaci\'on de la naturaleza (IUCN por sus siglas en ingl\'es) considera al tibur\'on martillo como una especie cr\'iticamente amenazada debido a la disminuci\'on progresiva de sus poblaciones \cite{IUCN}.  
 
-Estudiar  a detalle las diferentes caracter\'isticas de las especies es vital para establecer planes de manejo y conservaci\'on.  El estudio de los cambios ontogen\'eticos proporciona informaci\'on acerca del uso de nichos y del funcionamiento de los ecosistemas \cite{newsome}, sin embargo, la naturaleza migratoria y la inaccesibilidad del h\'abitat de los tiburones representan grandes dificultades para el estudio de estos cambios en la ecolog\'ia tr\'ofica del tibur\'on martillo \cite{hazen}.  Para establecer una verdadera red tr\'ofica es necesario entender las conexiones entre los organismos de la red y sus fuentes de alimento, as\'i como calificar y cuantificar los intercambios de energ\'ia y biomasa \cite {kling, vander}.  Los isot\'opos estables son una gran herramienta para el estudio, a profundidad, de las redes tr\'oficas, estos pueden permanecer sin combinarse con otros elementos, por lo que son muy \'utiles para el estudio de aspectos ecol\'ogicos, entre ellos, la dieta \cite{zanden}.   El an\'alisis de is\'otopos estables se realiza a partir de la composici\'on isot\'opica de un tejido, que refleja la presa asimilada y el ambiente de la misma y que permanece por largos per\'iodos de tiempo \cite{kim}.  Las vertebras, en particular, reflejan los cambios en la dieta de un organismo durante su vida \cite{koch}.  Este estudio pretende simular las interacciones tr\'oficas de \textbf{\textit{S.\ lewini}} a lo largo de su ontogenia alimentaria a trav\'es del estudio de is\'otopos estables obtenidos de las vertebras de diferentes individuos de la especie.
+Estudiar  a detalle las diferentes caracter\'isticas de las especies es vital para establecer planes de manejo y conservaci\'on.  El estudio de los cambios ontogen\'eticos proporciona informaci\'on acerca del uso de nichos y del funcionamiento de los ecosistemas \cite{newsome}, sin embargo, la naturaleza migratoria y la inaccesibilidad del h\'abitat de los tiburones representan grandes dificultades para el estudio de estos cambios en la ecolog\'ia tr\'ofica del tibur\'on martillo \cite{hazen}.  Para establecer una verdadera red tr\'ofica es necesario entender las conexiones entre los organismos de la red y sus fuentes de alimento, as\'i como calificar y cuantificar los intercambios de energ\'ia y biomasa \cite {kling, vander}.  Los isot\'opos estables son una gran herramienta para el estudio, a profundidad, de las redes tr\'oficas, estos pueden permanecer sin combinarse con otros elementos, por lo que son muy \'utiles para el estudio de aspectos ecol\'ogicos, entre ellos, la dieta \cite{zanden}.   El an\'alisis de is\'otopos estables se realiza a partir de la composici\'on isot\'opica de un tejido, que refleja la presa asimilada y el ambiente de la misma y que permanece por largos per\'iodos de tiempo \cite{kim}.  Las vertebras, en particular, reflejan los cambios en la dieta de un organismo durante su vida \cite{koch}.  Este estudio pretende analizar las interacciones tr\'oficas de \textbf{\textit{S.\ lewini}} a lo largo de su ontogenia alimentaria a trav\'es del estudio de is\'otopos estables obtenidos de las vertebras de diferentes individuos de la especie.
 
 
 
@@ -107,15 +107,118 @@ Estudiar  a detalle las diferentes caracter\'isticas de las especies es vital pa
 Se obtuvieron datos de is\'otopos de carbono y de nitr\'ogeno de 16 individuos de  \textbf{\textit{S.\ lewini}}. Los an\'alisis de is\'otopos estables se realizaron a partir de las vertebras de tiburones provenientes de la pesca ilegal, que fueron confiscados en los alrededores del Santuario de flora y fauna Malpelo, en  Colombia. Las vertebras fueron recolectadas de la parte dorso-anterior de cada esp\'ecimen, entre la cabeza y la primera aleta dorsal. Las vertebras fueron preparadas adecuadamente para la extracción de las muestras. En total, se procesaron 101 muestras, que fueron analizadas para obtener los datos isot\'opicos y la edad correspondiente.
 La edad de los tiburones fue estimada a partir de las vertebras de acuerdo a la funci\'on de crecimiento de von Bertalanffy \cite{tolentino}. Debido a que los individuos eran provenientes de la pesca ilegal no fue posible establecer el sexo de todos los espec\'imenes, por lo que se calcul\'o la edad para hembra y  macho del mismo individuo y se promedi\'o.
 
+Los datos obtenidos de los tiburones se clasificaron en seis grupos seg\'un el rango de edad, como se muestra en la tabla \ref{t1}. En primer lugar se realiz\'o una exploraci\'on de los datos mediante diagramas de dispersi\'on, histogramas y digramas de cajas y violines.  para el an\'alisis estad\'istico se hizo el test ANOVA.  El tratamiento estad\'istico y los gr\'aficos se elaboraron con el programa R en su versi\'on 3.6.2.
+
+
+\begin{table} 
+ \caption{Grupos por rango de edad}
+ \label{t1}
+ \begin{center}
+ \begin{tabular}{|r|r|}
+\hline
+\texttt{Edad} & \texttt{Rango de edad}  \\
+\hline
+Uno & 0 - 0.9 \\     
+\hline
+Dos & 1 - 1.9 \\    
+\hline
+Tres & 2 - 2.9 \\    
+\hline
+Cuatro & 3 - 3.9 \\    
+\hline
+Cinco & 4 - 4.9 \\    
+\hline
+Seis & 5 - 5.9 \\    
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+
 
  
 \section{Resultados y discusión}
 
+En la figura \ref{f4} se representan los tiburones estudiados en su posici\'on tr\'ofica de acuerdo a los is\'otopos de nitr\'ogeno y carbono.
+
+En la figura \ref{f1} se pueden ver los histogramas de frecuencia relativa nitr\'ogeno (izquierda) y de carbono(derecha) para cada grupo de edad.  Para la variable de nitrógeno se ve un aumento en la desviaci\'on est\'andar al aumentar la edad de los tiburones, mientras que para el carbono se ve una disminuci\'on en la desviaci\'on est\'andar conforme aumenta la edad de los tiburones y la media aumenta con el incremento de la edad. 
+
+Los diagramas de violín de las figuras \ref{f2} y \ref{f3} muestran el comportamiento de la media (rombo rojo), para el caso del nitr\'ogeno se ve un l\'igero descenso con el aumento de la edad, la gr\'afica del carbono corrobora lo observado en la figura \ref{f1}.
+Los resultados del an\'alisis de varianza (ANOVA) se muestran en la tabla \ref{t2}, en el caso del nitr\'ogeno no se encontraron diferencias significativas entre las edades, sin embargo, al realizar el an\'alisis para el is\'otopo de carbono, se encontraron diferencias significativas.
+
+El estudio de la ontogenia a trav\'es de las vertebras aporta informaci\'on valiosa, en especial en especies altamente migratorias como  \textbf{\textit{S.\ lewini}}, ya que este tipo de estructuras integran el ciclo de vida del individuo \cite{estrada,kim}.  El estudio del is\'otopo de carbono permite determinar el \'area de alimentaci\'on (oce\'anica o costera), mientras que el is\'otopo de nitr\'ogeno da luz acerca de las fuentes de alimentaci\'on desde bajos niveles tr\'oficos (zooplanct\'ivoros) hasta altos niveles tr\'oficos (pisc\'ivoros terciarios) \cite{hussey}.
+
+Los valores obtenidos del is\'otopo de nitr\'ogeno son relativamente bajos lo que indica una alimentaci\'on basada en presas herv\'iboras  \cite{sigman}. Los valores isot\'opicos de nitr\'ogeno hallados en las vertebras de los individuos del grupo de edad 1 pueden ser reflejo de transferencia de prote\'inas provenientes de la madre que se van diluyendo con el crecimiento de las cr\'ias \cite{estupinan2019}, lo que concuerda con las observaciones realizadas. Los tiburones de este estudio son j\'ovenes, menores de seis a\~nos por lo que han vivido la mayor parte de sus vidas en \'areas costeras y manglares, que son las \'areas de crianza, pues ah\'i es donde encuentran una mayor disponibilidad de presas y de f\'acil acceso al momento de la caza \cite{flores,estupinan}, a su vez este tipo de presas aportan bajos niveles de nitr\'ogeno por encontrarse en bajos niveles de la red tr\'ofica \cite{hussey}. Los valores obtenidos de los is\'otopos de carbono tambi\'en son relativamente bajos, pero se encuentrasn en un rango amplio, lo que es congruente con los valores de nitr\'ogeno pues ubica a la especie en \'areas costeras y muestra un alejamiento lento de las \'areas costeras a trav\'es de su ontogenia.
+
+
+
+
+
+\begin{figure}
+  \begin{center}
+    \includegraphics [scale=0.5]{sharkposition.png}
+  \end{center}
+  \caption{Posici\'on isot\'opica de los tiburones}
+  \label{f4}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics [scale=0.3]{histoFR.png}
+  \end{center}
+  \caption{Histogramas de frecuencias relativas}
+  \label{f1}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics [scale=0.4]{violinN.png}
+  \end{center}
+  \caption{Diagrama de viol\'in - Nitr\'ogeno}
+  \label{f2}
+\end{figure}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics [scale=0.4]{violinC.png}
+  \end{center}
+  \caption{Diagrama de vio\'in - Carbono}
+  \label{f3}
+\end{figure}
+
+\begin{table} 
+ \begin{center}
+\resizebox{10cm}{!} {
+ \begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\texttt{} & \texttt{Df} & \texttt{Sum Sq} &\texttt{Mean Sq} & \texttt{F value}  & \texttt{Pr (>F)} \\
+\hline
+Nitr\'ogeno & 1 & 2.22 & 2.217 & 1.105 & 0.296 \\     
+\hline
+Residuals & 99 & 198.52 & 2.005 & & \\ 
+\hline
+Carbono & 1 & 10.33 & 10.325 & 5.369 & 0.0226* \\     
+\hline
+Residuals & 99 & 190.41 & 1.923 &  & \\ 
+\hline
+\end{tabular}
+}
+\caption{An\'alisis de varianza}
+ \label{t2}
+\end{center}
+\end{table}
+
+
 
 \section{Conclusiones}
+
+La ontogenia de \textbf{\textit{S.\ lewini}} muestra un alejamiento lento de las zonas de crianza (zonas costeras), a su vez evidencia la transferencia de prote\'inas maternas que se van diluyendo con el crecimiento y que seguramente aumentar\'an en la medida que escale dentro de la red tr\'ofica.
   
 \subsection*{Agradecimientos}
 
+Agradezco a MsC. Colombo Estupi\~nan Monta\~no por compartir una parte de los datos obtenidos para el desarrollo de su tesis de doctorado para realizar este proyecto y a la Dra. Elisa Schaeffer por su gu\'ia en la realizaci\'on de este proyecto.
 
 \bibliographystyle{unsrt}
 \bibliography{refproj}
